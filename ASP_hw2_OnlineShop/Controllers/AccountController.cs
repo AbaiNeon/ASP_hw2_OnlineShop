@@ -125,8 +125,12 @@ namespace ASP_hw2_OnlineShop.Controllers
         {
             using (ShopContext db = new ShopContext())
             {
-                //здесь должен быть код очистки таблицы UserItems
-                
+                //здесь должен быть работающий код удаления записей юзера из таблицы UserItems
+                string login = Session["Login"].ToString();
+
+                User user = db.Users.First(u => u.Login == login);
+                user.Items.Clear();
+                db.SaveChanges();
 
                 return View();
             }
