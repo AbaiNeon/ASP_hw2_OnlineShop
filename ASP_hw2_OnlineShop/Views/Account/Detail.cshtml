@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+}
+<h4 class="font-italic">@Session["Login"].ToString()</h4>
+<a class="btn btn-default" href="/Account/Logout">Logout</a>
+
+<h3>Название: @ViewBag.Name</h3>
+<h3>Цена: @ViewBag.Price</h3>
+

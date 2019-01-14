@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ASP_hw2_OnlineShop.Models.Item>
+
+@{
+    ViewBag.Title = "LoggedIn";
+}
+
+<span class="font-weight-bold">@Session["Login"].ToString()</span> | <a class="btn btn-default" href="/Account/Logout">Logout</a> 
+<br/> 
+<a class="btn btn-default" href="/Account/Basket">Your Basket</a>
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>Catalog</h2>
+    </div>
+</div>
+        
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a class="btn btn-default" href="/Account/Detail/@item.Id">Details</a>
+                <a class="btn btn-default" href="/Account/AddToBasket/@item.Id">Add to basket</a>
+            </td>
+        </tr>
+    }
+
+</table>
